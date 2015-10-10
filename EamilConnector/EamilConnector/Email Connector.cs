@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Net.Mail;
 
 
+
 namespace EamilConnector
 {
     public partial class Form1 : Form
@@ -28,9 +29,8 @@ namespace EamilConnector
             
             if (IsValidEmail(EmailText.Text))
             {
-                
 
-         
+                
             }
         }
 
@@ -87,5 +87,13 @@ namespace EamilConnector
             return match.Groups[1].Value + domainName;
         }
 
+       private void ConnectToGmail()
+        {
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.EnableSsl = true;
+            MailAddress from = new MailAddress(EmailText.Text );
+
+        }
     }
 }
